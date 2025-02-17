@@ -19,7 +19,11 @@ app.add_middleware(
 
 @app.get("/workouts/api/health")
 async def health_check():
-    return {"status": "healthy"}
+    return {
+        "status": "healthy",
+        "timestamp": datetime.datetime.now().isoformat(),
+        "version": "0.1.0"
+    }
 
 if __name__ == "__main__":
     import uvicorn
